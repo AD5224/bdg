@@ -237,11 +237,26 @@ body {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.photos figure:hover img {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
 .photos figcaption {
   margin-top: 10px;
   font-size: 1rem;
   font-weight: 500;
   color: #444;
+}
+
+/* ✅ Fix for mobile images */
+@media (max-width: 600px) {
+  .photos img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 
 /* ================== WISHES ================== */
@@ -293,6 +308,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .candle {
@@ -380,63 +396,3 @@ body {
   30% { opacity: 0.9; }
   100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
-
-
-
-
-
-.photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-}
-
-.photos figure {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  overflow: hidden;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out, box-shadow 0.3s ease;
-}
-
-.photos figure.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.photos figure:hover {
-  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
-}
-
-.photos img {
-  width: 100%;
-  max-height: 300px;
-  border-radius: 12px;
-  object-fit: contain; /* ensures full photo visible */
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.photos figure:hover img {
-  transform: scale(1.08) rotate(-1deg);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-}
-
-.photos figcaption {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #444;
-}
-
-@media (max-width: 600px) {
-  .photos img {
-    max-height: none;
-  }
-}
-
