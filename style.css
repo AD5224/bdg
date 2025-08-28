@@ -433,3 +433,10 @@ body {
   font-weight: 500;
   color: #444;
 }
+
+@media (max-width: 600px) {
+  .photos img {
+    max-height: none;
+  }
+}
+
